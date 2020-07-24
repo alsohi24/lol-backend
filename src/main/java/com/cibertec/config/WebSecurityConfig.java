@@ -9,11 +9,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.cibertec.service.impl.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
+@CrossOrigin(origins = "*")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	//Necesario para evitar que la seguridad se aplique a los resources
