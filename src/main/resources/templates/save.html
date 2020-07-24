@@ -290,7 +290,7 @@
 
 		var pais = document.getElementById("pais").value;
 		
-		//var ciudad = document.getElementById("ciu").value;
+		var ciudad = document.getElementById("ciu").value;
 
 
 		if (pais == 0) {
@@ -311,8 +311,8 @@
 		}
 
 		function loadCiudades() {
-			document.getElementById("prov").innerHTML = '<option value="0">Primero seleccione una Ciudad</option>';
-
+			valNullProv();
+			//$.getJSON("http://localhost:8080/ciudades", {
 			$.getJSON("https://app-spring-dswii.herokuapp.com/ciudades", {
 				//id : $('#pais').val(),
 				ajax : 'true'
@@ -344,7 +344,18 @@
 			document.getElementById("prov").value = d;
 		}
 		
+		function valNullProv(){
+			if (ciudad == 0) {
+				//document.getElementById("ciu").innerHTML = '<option value="0">Primero seleccione un Pa&iacute;s</option>';
+
+			} 
+			document.getElementById("prov").innerHTML = '<option value="0">Primero seleccione una Ciudad</option>';
+
+		}
 		function loadProvincias() {
+			valNullProv();
+			
+			//$.getJSON("http://localhost:8080/provincias/", {
 			$.getJSON("https://app-spring-dswii.herokuapp.com/provincias/", {
 				//id : $('#ciu').val(),
 				ajax : 'true'
