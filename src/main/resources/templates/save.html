@@ -311,6 +311,8 @@
 		}
 
 		function loadCiudades() {
+			document.getElementById("prov").innerHTML = '<option value="0">Primero seleccione una Ciudad</option>';
+
 			$.getJSON("https://app-spring-dswii.herokuapp.com/ciudades", {
 				//id : $('#pais').val(),
 				ajax : 'true'
