@@ -184,7 +184,7 @@
 														<th>Email</th>
 														<th>Pais</th>
 														<th>Ciudad</th>
-														<th></th>
+														<th>Distrito</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -196,6 +196,7 @@
 														<td th:text=${persona.email}></td>
 														<td th:text=${persona.pais.nombre}></td>
 														<td th:text=${persona.ciu.nombre}></td>
+														<td th:text=${persona.prov.nombre}></td>
 														<td><a class="btn btn-info"
 															th:href="@{/save/{id}(id=${persona.id})}">Editar</a></td>
 														<td><a class="btn btn-danger"

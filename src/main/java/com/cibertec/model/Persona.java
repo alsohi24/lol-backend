@@ -51,6 +51,20 @@ public class Persona implements Serializable{
 	@NotNull
     @Valid
 	private CiudadPrincipal ciu;
+	
+	@ManyToOne
+	@JoinColumn(name = "provincia_id", nullable = false)
+	@NotNull
+    @Valid
+	private Provincia prov;
+
+	public Provincia getProv() {
+		return prov;
+	}
+
+	public void setProv(Provincia prov) {
+		this.prov = prov;
+	}
 
 	public int getId() {
 		return id;

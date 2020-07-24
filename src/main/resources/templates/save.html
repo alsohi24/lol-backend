@@ -217,6 +217,15 @@
 													<small class="form-text text-danger"
 														th:if="${#fields.hasErrors('ciu')}" th:errors="*{ciu}"></small>
 												</div>
+												<div class="form-group">
+													<label for="prov">Provincia u otras locaciones </label> <select 
+														th:field="*{prov}" class="form-control" id="prov">
+														<option th:each="p:${listProv}"
+															th:value="${p.id}" th:text="${p.nombre}" />
+													</select>
+													<small class="form-text text-danger"
+														th:if="${#fields.hasErrors('prov')}" th:errors="*{prov}"></small>
+												</div>
 												<button type="submit" class="btn btn-success">Guardar</button>
 											</form>
 										</div>
@@ -240,8 +249,7 @@
 			<footer class="footer">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-6">2020 © Cibertec - by Gerson, Alvaro,
-							Christian</div>
+						<div class="col-md-6">2020 © GACKJ S.A.C.</div>
 					</div>
 				</div>
 			</footer>
@@ -271,7 +279,9 @@
 		$(document).ready(
 		//console.log('logo')
 
-		$('#pais').change(loadCiudades)
+		$('#pais').change(loadCiudades),
+
+		$('#ciu').change(loadProvincias)
 
 		//$('#ciu').html('<option value="0">Primero seleccione un País</option>')
 		//$.proxy(loadCiudades, $('#pais'))();
@@ -279,22 +289,30 @@
 		);
 
 		var pais = document.getElementById("pais").value;
+		
+		//var ciudad = document.getElementById("ciu").value;
+
 
 		if (pais == 0) {
 			document.getElementById("ciu").innerHTML = '<option value="0">Primero seleccione un Pa&iacute;s</option>';
 
+			document.getElementById("prov").innerHTML = '<option value="0">Primero seleccione una Ciudad</option>';
 		} else {
 			var c = document.getElementById("ciu").value;
-			loadCiudades();
+			var d = document.getElementById("prov").value;
 
-			setTimeout(function() {
-				document.getElementById("ciu").value = c;
-			}, 500);
+			console.log("ciu : "+c);
+
+			console.log("dis : "+d);
+
+			loadCiudades();
+			setTimeout(setCiudad, 300);
+			setTimeout(setProv, 500);
 		}
 
 		function loadCiudades() {
-			$.getJSON("http://localhost:8085/ciudades", {
-				id : $('#pais').val(),
+			$.getJSON("http://localhost:8080/ciudades", {
+				//id : $('#pais').val(),
 				ajax : 'true'
 			}, function(data) {
 				console.log("pais onchange " + $('#pais').val());
@@ -311,6 +329,38 @@
 				}
 				html += '</option>';
 				$('#ciu').html(html);
+			});
+			//.log("pais onchange")   	
+		}
+		
+		function setCiudad() {
+			document.getElementById("ciu").value = c;	
+			loadProvincias();
+		}
+		
+		function setProv(){
+			document.getElementById("prov").value = d;
+		}
+		
+		function loadProvincias() {
+			$.getJSON("http://localhost:8080/provincias/", {
+				//id : $('#ciu').val(),
+				ajax : 'true'
+			}, function(data) {
+				//console.log("pais onchange " + $('#pais').val());
+
+				var html = '<option value="">Selecciona Provincia</option>';
+				var len = data.length;
+				for (var i = 0; i < len; i++) {
+
+					if (data[i].ciudad.id == $('#ciu').val()) {
+						html += '<option value="' + data[i].id + '">'
+								+ data[i].nombre + '</option>';
+					}
+
+				}
+				html += '</option>';
+				$('#prov').html(html);
 			});
 			//.log("pais onchange")   	
 		}

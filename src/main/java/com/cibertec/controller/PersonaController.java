@@ -19,6 +19,7 @@ import com.cibertec.model.CiudadPrincipal;
 import com.cibertec.service.ICiudadService;
 import com.cibertec.service.IPaisService;
 import com.cibertec.service.IPersonaService;
+import com.cibertec.service.IProvinciaService;
 
 @Controller
 public class PersonaController {
@@ -31,6 +32,9 @@ public class PersonaController {
 	
 	@Autowired
 	private ICiudadService ciuService;
+	
+	@Autowired
+	private IProvinciaService provService;
 	
 	@GetMapping({"/","/login"})
 	public String index() {
@@ -47,6 +51,7 @@ public class PersonaController {
 	public String showSave(@PathVariable("id") Integer id, Model model) {
 		model.addAttribute("listPaises",paisService.getAll());
 		model.addAttribute("listCius",ciuService.getAll());
+		model.addAttribute("listProv",provService.getAll());
 
 		if(id != null && id != 0) {
 			model.addAttribute("persona", personaService.get(id));
