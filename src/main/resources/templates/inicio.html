@@ -25,7 +25,8 @@
 	type="text/css" th:href="@{/css/icons.min.css}" />
 <link href="../static/css/app.min.css" rel="stylesheet" type="text/css"
 	th:href="@{/css/app.min.css}" />
-
+    <link href="../static/css/lol.css" th:href="@{/css/lol.css}" rel="stylesheet"
+	type="text/css"/>	
 
 <!-- Bootstrap CSS -->
 <!-- Include JavaScript -->
@@ -44,7 +45,6 @@
 	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
 	crossorigin="anonymous"></script>-->
 </head>
-
 <body>
 
 
@@ -61,16 +61,16 @@
 
 				<!-- Topbar Start -->
 				<div class="navbar-custom">
-					<a href="/inicio"> <b style="color: white; font-size: 25px;">Dashboard
-							Administrativo de Productos y/o Personal</b>
+					<a href="/inicio"> 
+						<img class="logomin" style="width: 35px; color: white;" src="static/img/logomin.png" th:src="@{/img/logomin.png}"/>
+						
 					</a>
-
 					<button type="button"
 						class="btn btn-sm btn-dark d-inline-block d-lg-none button-menu-mobile">Menu</button>
 
-					<div class="badge badge-success float-right">
+					<div class="badge float-right">
 						<form th:action="@{/logout}" method="post">
-							<h5 th:inline="text" style="display: inline-block;">
+							<h5 th:inline="text" style="display: inline-block; color: white;">
 								Hola <b style="text-transform: capitalize;">
 									[[${#httpServletRequest.remoteUser}]]</b>
 							</h5>
@@ -89,40 +89,23 @@
 							<div class="slimscroll-menu">
 								<div class="list-group list-group-transparent mb-0">
 
-									<span class="list-group-item disabled"> PERSONAS </span> <a
+									<span class="list-group-item disabled"> JUGADORES </span> <a
 										href="/inicio"
 										class="list-group-item list-group-item-action active"> <span
 										class="mr-2"> <i class="mdi mdi-flag-variant-outline"></i>
-									</span>Lista de Personas
+									</span>Lista de Jugadores
 									</a> <a href="/save/0"
 										class="list-group-item list-group-item-action "> <span
 										class="mr-2"> <i class="mdi mdi-apps"></i>
-									</span>Registro de Personas
-									</a> <span class="list-group-item disabled"> PRODUCTOS </span> <a
+									</span>Registro de Jugadores
+									</a> <span class="list-group-item disabled"> PERSONAJES </span> <a
 										href="#" class="list-group-item list-group-item-action"> <span
 										class="mr-2"> <i class="mdi mdi-flag-variant-outline"></i>
-									</span>Lista de Productos
+									</span>Lista de Personajes
 									</a> <a href="#" class="list-group-item list-group-item-action ">
 										<span class="mr-2"> <i class="mdi mdi-apps"></i>
-									</span>Registro de Productos
-									</a><span class="list-group-item disabled"> Otros </span> <a
-										href="seed-projects.html"
-										class="list-group-item list-group-item-action "> <span
-										class="mr-2"> <i class="mdi mdi-menu"></i>
-									</span>Paises
-									</a> <a href="changelog.html"
-										class="list-group-item list-group-item-action "> <span
-										class="mr-2"> <i class="mdi mdi-menu"></i>
-									</span>Departamentos
-									</a> <a href="changelog.html"
-										class="list-group-item list-group-item-action "> <span
-										class="mr-2"> <i class="mdi mdi-menu"></i>
-									</span>Distrito
-									</a> <a href="changelog.html"
-										class="list-group-item list-group-item-action "> <span
-										class="mr-2"> <i class="mdi mdi-menu"></i>
-									</span>Ciudad
-									</a>
+									</span>Registro de Personajes
+									<!-- </a><span class="list-group-item disabled"> Otros </span> -->
 
 								</div>
 							</div>
@@ -225,8 +208,7 @@
 			<footer class="footer">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-6">2020 © Cibertec - by Gerson, Alvaro,
-							Christian</div>
+						<div class="col-md-6"> 0 d.C19 © Cibertec - by Adrian Reyes</div>
 					</div>
 				</div>
 			</footer>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>LOL</title>
 
     <!-- Los iconos tipo Solid de Fontawesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
@@ -14,15 +14,19 @@
 		
 	<!-- Nuestro css-->
     <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
-		
+    <link href="../static/css/lol.css" th:href="@{/css/lol.css}" rel="stylesheet" type="text/css"/>	
 
 </head>
+<video src="static/img/lol.mp4" th:src="@{/img/lol.mp4}" type="video/mp4" autoplay loop playsinline muted>
+        <!-- <source src="static/img/lol.mp4" type="video/ogg"> -->
+</video>
+<!-- <video src="../static/video/lol.mp4" autoplay loop playsinline muted></video> -->
 <body>
     <div class="modal-dialog text-center">
         <div class="col-sm-8 main-section">
             <div class="modal-content">
                 <div class="col-12 user-img">
-                    <img src="static/img/user.png" th:src="@{/img/user.png}"/>
+                    <img src="static/img/logol.png" th:src="@{/img/logol.png}"/>
                 </div>
                 <form class="col-12" th:action="@{/login}" method="post">
                     <div class="form-group" id="user-group">
@@ -31,7 +35,7 @@
                     <div class="form-group" id="contrasena-group">
                         <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                    <button type="submit" class="btn "><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
                 </form>
                 <div class="col-12 forgot">
                     <a href="#">Recordar contraseña?</a>
