@@ -80,16 +80,17 @@
 
 				<!-- Topbar Start -->
 				<div class="navbar-custom">
-					<a href="/inicio"> <b style="color: white; font-size: 25px;">Dashboard
-							Administrativo de Productos y/o Personal</b>
+					<a href="/inicio"> 
+						<img class="logomin" style="width: 35px; color: white;" src="static/img/logomin.png" th:src="@{/img/logomin.png}"/>
+						
 					</a>
 
 					<button type="button"
 						class="btn btn-sm btn-dark d-inline-block d-lg-none button-menu-mobile">Menu</button>
 
-					<div class="badge badge-success float-right">
+					<div class="badge float-right">
 						<form th:action="@{/logout}" method="post">
-							<h5 th:inline="text" style="display: inline-block;">
+							<h5 th:inline="text" style="display: inline-block; color: white;">
 								Hola <b style="text-transform: capitalize;">
 									[[${#httpServletRequest.remoteUser}]]</b>
 							</h5>
@@ -289,6 +290,8 @@
 
 		);
 
+		var base_url = window.location.origin;
+
 		var pais = document.getElementById("pais").value;
 		
 		var ciudad = document.getElementById("ciu").value;
@@ -314,7 +317,7 @@
 		function loadCiudades() {
 			valNullProv();
 			//$.getJSON("http://localhost:8080/ciudades", {
-			$.getJSON("https://app-spring-dswii.herokuapp.com/ciudades", {
+			$.getJSON(base_url+"/ciudades", {
 				//id : $('#pais').val(),
 				ajax : 'true'
 			}, function(data) {
@@ -357,7 +360,7 @@
 			valNullProv();
 			
 			//$.getJSON("http://localhost:8080/provincias/", {
-			$.getJSON("https://app-spring-dswii.herokuapp.com/provincias/", {
+			$.getJSON(base_url+"/provincias/", {
 				//id : $('#ciu').val(),
 				ajax : 'true'
 			}, function(data) {
