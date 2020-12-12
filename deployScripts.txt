@@ -1,0 +1,35 @@
+heroku login
+git init
+git add .
+git commit -m "primer"
+heroku apps:create (colocar el nombre de la aplicacion en la nube)
+git push heroku master
+heroku open --app loljava
+heroku pg:psql --app loljava
+
+(aca viene los inserts en la BD)
+INSERT INTO usuario (id,enabled,password,username) VALUES(1,true,'$2a$04$Rdk73vMslUwl6SJhcSd8aOLns7V8DLMQGa0SrgTwOzbuOsBRTtTZK','admin');
+INSERT INTO usuario (id,enabled,password,username) VALUES(2,true,'$2a$04$eFyQ5XDrVBrLelaVVEpH0uBVESfVZEiArJfdZFfMWL0AQry7Eifbe','user');
+INSERT INTO usuario (id,enabled,password,username) VALUES(3,true,'$2a$04$Rdk73vMslUwl6SJhcSd8aOLns7V8DLMQGa0SrgTwOzbuOsBRTtTZK','adrian');
+
+INSERT INTO authority (id,authority) VALUES (1,'ROLE_ADMIN');
+INSERT INTO authority (id,authority) VALUES (2,'ROLE_USER');
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,1);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (2,2);
+INSERT INTO pais (pais_id,pais_nombre) VALUES(1,'Peru');
+INSERT INTO pais (pais_id,pais_nombre) VALUES(2,'Brasil');
+INSERT INTO pais (pais_id,pais_nombre) VALUES(3,'Argentina');
+
+
+INSERT INTO ciudad_principal VALUES(1,'Lima',1);
+INSERT INTO ciudad_principal VALUES(2,'Piura',1);
+INSERT INTO ciudad_principal VALUES(3,'Trujillo',1);
+
+
+INSERT INTO provincia VALUES(1,'Lima',1);
+INSERT INTO provincia VALUES(2,'Huaral',1);
+INSERT INTO provincia VALUES(3,'Canta',1);
+
+INSERT INTO provincia VALUES(4,'Sullana',2);
+INSERT INTO provincia VALUES(5,'Talara',2);
