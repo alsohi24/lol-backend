@@ -1,3 +1,3 @@
 # wapp-spring
-https://app-spring-dswii.herokuapp.com
+https://proy-banca-backend.herokuapp.com/
 # lol-backend
